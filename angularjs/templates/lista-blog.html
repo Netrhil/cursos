@@ -1,7 +1,9 @@
 <h3>Lista de blogs </h3>
 <ul>
     <li ng-repeat="item in items">
-        <a ng-href="#/blog/{{ item.id }}"> {{item.titulo}} </a> 
+        <a href="#" ng-click="alClick(item)" click-confirmado> {{item.titulo}} </a> 
+        <!-- con directivas -->
+        <!--  ng-href="#/blog/{{ item.id }}"{<confirmar-click></confirmar-click>} -->
     </li>
 </ul>
 

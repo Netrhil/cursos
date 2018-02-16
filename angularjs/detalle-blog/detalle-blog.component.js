@@ -3,30 +3,49 @@
 angular.module("detalleBlog").
         component("detalleBlog",{
             templateUrl:"./templates/detalle-blog.html",
-            controller :function($routeParams, $scope){ //el scope es obligatorio
-                  console.log($routeParams);
-                  
-                    var blogItems = [
-                        {id:1 ,titulo:"titulo 1" , descripcion: "descripcion 1"},
-                        {id:2 ,titulo:"titulo 2" , descripcion: "descripcion 2"},
-                        {id:3 ,titulo:"titulo 3" , descripcion: "descripcion 3"},
-                        {id:4 ,titulo:"titulo 4" , descripcion: "descripcion 4"},
-                        {id:5 ,titulo:"titulo 5" , descripcion: "descripcion 5"},
-                    ];
+            controller :function(Post ,$http, $location, $routeParams, $scope){ //el scope es obligatorio
+                $scope.titulo = "Blog numero " + $routeParams.id
+                $scope.noEncontrado = false;
+                console.log(Post.query());
 
-                    $scope.titulo = "Blog numero " + $routeParams.id
-                    $scope.noEncontrado = false;
-
-                    angular.forEach( blogItems ,function(post) {
-                        console.log(post);
+                Post.query(function(data){
+                    angular.forEach( data ,function(post) {
+                        
                         if (post.id == $routeParams.id) {
                             $scope.noEncontrado = true;
                             $scope.post = post;                            
                         }                       
                         
-                    });
-     
-                }
+                    });       
+
+                });
+
+                
+            //     //hace request a la ruta especificada
+            //     $http.get("/json/posts.json").then(succesCallBack, errorCallback);
+                
+            //     function succesCallBack(response, status, config, statusText){
+            //         console.log(response);
+            //         var blogItems = response.data;
+
+            //         angular.forEach( blogItems ,function(post) {
+            //             console.log(post);
+            //             if (post.id == $routeParams.id) {
+            //                 $scope.noEncontrado = true;
+            //                 $scope.post = post;                            
+            //             }                       
+                        
+            //         });                   
+
+            //     }
+
+            //     function errorCallback(response, status, config, statusText) {
+            //         console.log(response);
+            //     }
+
+            }
+
+            
 
         });
         

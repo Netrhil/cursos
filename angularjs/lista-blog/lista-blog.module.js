@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("listaBlog", []);
+angular.module("listaBlog", ["Post"]);

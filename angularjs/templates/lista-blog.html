@@ -1,0 +1,11 @@
+<div class="">
+    <p>{{cosa}}</p>
+    <button ng-click="clickTest()"> Click! </button>
+</div>
+
+<h3>Lista de blogs </h3>
+<ul>
+    <li ng-repeat="item in items"> {{item.titulo}}</li>
+</ul>
+
+<span ng-if="items.length == 0"> No hay blogs :(</span>

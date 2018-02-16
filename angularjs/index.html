@@ -1,0 +1,38 @@
+<html lang="en" ng-app="prueba">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs</title>
+</head>
+<style>
+    .nueva-clase {
+        font-size: 72px;
+    }
+    .otra-clase {
+        font-size: 32px;
+    }
+    
+</style>
+<body>
+    <div>
+        <h1 class="nueva-clase" ng-class="{'otra-clase':nombre == 'lara'}">
+            Hola
+            <span ng-if="nombre">{{ nombre }}</span>
+            <span ng-if="!nombre"> Mundo !</span>
+        </h1>
+        <input type="text" ng-model="nombre">
+    </div>
+    <lista-blog></lista-blog>
+
+        
+    <script src="node_modules/angular/angular.min.js" type="text/javascript"></script>
+    <script src="node_modules/angular-route/angular-route.min.js" type="text/javascript"></script>
+    <script src="node_modules/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+    <script src="app/app.config.js" type="text/javascript"></script>
+    <script src="app/app.module.js" type="text/javascript"></script>
+    <script src="lista-blog/lista-blog.module.js" type="text/javascript"></script>
+    <script src="lista-blog/lista-blog.component.js" type="text/javascript"></script>
+    
+</body>
+</html>

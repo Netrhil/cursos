@@ -14,7 +14,7 @@ angular.module('prueba').
                 templateUrl: "./templates/about.html"
             }).
             when("/blog/:id",{
-                template: "<lista-blog></lista-blog>"
+                template: "<detalle-blog></detalle-blog>"
             }).
             // when("/blog/2",{
             //     template: "<h1> hola!! 2 </h2>"

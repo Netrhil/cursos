@@ -14,20 +14,20 @@ angular.module("listaBlog").
                         {id:5 ,titulo:"titulo 5" , descripcion: "descripcion 5"},
                     ];
                     $scope.items = blogItems;
-                    $scope.cosa = "0 Clicks!!"
-                    $scope.clicks = 0;
+                    // $scope.cosa = "0 Clicks!!"
+                    // $scope.clicks = 0;
                     
                     /**
                      * Las funciones dentro del scope del controlador
                      * tambien se declaran aqui.
                      */
-                    $scope.clickTest = function () {
-                        console.log( $scope.clicks);
-                        $scope.clicks ++;
-                        $scope.cosa = $scope.clicks + " Clicks!!";                
+                //     $scope.clickTest = function () {
+                //         console.log( $scope.clicks);
+                //         $scope.clicks ++;
+                //         $scope.cosa = $scope.clicks + " Clicks!!";                
                         
-                    }
-                }
+                //     }
+                // }
 
-        });
+            }});
         

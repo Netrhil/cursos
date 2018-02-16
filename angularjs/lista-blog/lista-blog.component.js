@@ -3,8 +3,9 @@
 angular.module("listaBlog").
         component("listaBlog",{
             templateUrl:"./templates/lista-blog.html",
-            controller :function($scope){ //el scope es obligatorio
-                
+            controller :function($routeParams, $scope){ //el scope es obligatorio
+                  console.log($routeParams);
+                  
                     var blogItems = [
                         {id:1 ,titulo:"titulo 1" , descripcion: "descripcion 1"},
                         {id:2 ,titulo:"titulo 2" , descripcion: "descripcion 2"},

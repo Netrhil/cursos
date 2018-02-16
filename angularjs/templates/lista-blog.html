@@ -1,10 +1,11 @@
 <h3>Lista de blogs </h3>
-<ul>
-    <li ng-repeat="item in items">
-        <a href="#" ng-click="alClick(item)" click-confirmado> {{item.titulo}} </a> 
+<ul ng-if="items.length > 0">
+    <li ng-repeat="post in items">
+        <a href="#" ng-click="alClick(post)"> {{post.titulo}} </a> 
         <!-- con directivas -->
-        <!--  ng-href="#/blog/{{ item.id }}"{<confirmar-click></confirmar-click>} -->
+        <!--  ng-href="#/blog/{{ item.id }}"{} -->
+        <!-- <confirmar-click></confirmar-click> -->
     </li>
 </ul>
 
-<span ng-if="items.length == 0"> No hay blogs :(</span>
+<span ng-if="items.length == 0"> No hay posts :(</span>

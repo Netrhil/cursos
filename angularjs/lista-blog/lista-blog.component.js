@@ -4,20 +4,19 @@ angular.module("listaBlog").
         component("listaBlog",{
             templateUrl:"./templates/lista-blog.html",
             controller :function(Post, $location, $routeParams, $rootScope ,$scope){ //el scope es obligatorio
-                  console.log($routeParams);
-                  $scope.items = Post.query();
-                  $scope.alClick = function(item) {
+                $scope.alClick = function(post) {
                     setTimeout(function(){ 
-                        $rootScope.$apply(function(item){ 
-                            $location.path("/blog/1"); 
+                        $rootScope.$apply(function(){ 
+                            console.log(post);
+                            
+                            $location.path("/blog/" + post.id); 
                                
                            });  
-                      },0)
-                                 
-                                      
-
-                                            
+                      },0)              
                   }
+
+                  $scope.items = Post.query();
+               
                 
                   
                     // var blogItems = [

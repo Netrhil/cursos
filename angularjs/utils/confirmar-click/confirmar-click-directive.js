@@ -9,6 +9,8 @@ angular.module("confirmarClick").
                 var msg = scope.message || "estas seguro?";
                 var clickAction = attr.clickConfirmado; //directiva
                 element.bind("click",function(event) {
+                    console.log(clickAction);
+                    
                     if (window.confirm(msg)) {
                         scope.$eval(clickAction);                        
                     }                    

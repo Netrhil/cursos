@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("detalleBlog", ["Post"]);
+angular.module("detalleBlog", ["comentariosApi"]);

@@ -3,20 +3,17 @@
 angular.module("detalleBlog").
         component("detalleBlog",{
             templateUrl:"./templates/detalle-blog.html",
-            controller :function(Post ,$http, $location, $routeParams, $scope){ //el scope es obligatorio
+            controller :function(comentariosApi ,$http, $location, $routeParams, $scope){ //el scope es obligatorio
                 $scope.titulo = "Blog numero " + $routeParams.id
                 $scope.noEncontrado = false;
-                console.log(Post.query());
-
+              
                 $scope.agregarRespuesta = function(){
-                    console.log($scope.respuesta);
-                    $scope.post.comentarios.push($scope.respuesta);
+                    $scope.comentarios.push($scope.respuesta.texto);
+
+                    comentariosApi.save({idPost: $routeParams.id , texto:$scope.respuesta.texto });                  
                                         
                 }
                 $scope.eliminarComentario = function(comentario){
-                    console.log(comentario);
-                    
-                    
                     $scope.post.comentarios.splice(comentario, 1);
                 }
                 $scope.resetRespuesta =  function(){
@@ -26,19 +23,16 @@ angular.module("detalleBlog").
                     }                     
                 }
 
-                Post.query(function(data){
-                    angular.forEach( data ,function(post) {
-                        
-                        if (post.id == $routeParams.id) {
-                            $scope.noEncontrado = true;
-                            $scope.post = post;
-                                                    
-                        }                       
-                        
-                    });       
+                comentariosApi.get({ id: $routeParams.id }, function(data){
+                    $scope.comentarios = data.response;
+                                        
+                                        
+                  });
 
-                });
+                  
+                  
 
+         
                 
             //     //hace request a la ruta especificada
             //     $http.get("/json/posts.json").then(succesCallBack, errorCallback);

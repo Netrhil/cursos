@@ -3,7 +3,7 @@
 angular.module("listaBlog").
         component("listaBlog",{
             templateUrl:"./templates/lista-blog.html",
-            controller :function(Post, $location, $routeParams, $rootScope ,$scope){ //el scope es obligatorio
+            controller :function(postsApi, $location, $routeParams, $rootScope ,$scope){ //el scope es obligatorio
                 $scope.alClick = function(post) {
                     setTimeout(function(){ 
                         $rootScope.$apply(function(){ 
@@ -14,11 +14,12 @@ angular.module("listaBlog").
                            });  
                       },0)              
                   }
-
-                  $scope.items = Post.query();
-               
-                
                   
+                  postsApi.get(function(data){
+                    $scope.items = data.response;
+                                        
+                  });
+              
                     // var blogItems = [
                     //     {id:1 ,titulo:"titulo 1" , descripcion: "descripcion 1"},
                     //     {id:2 ,titulo:"titulo 2" , descripcion: "descripcion 2"},

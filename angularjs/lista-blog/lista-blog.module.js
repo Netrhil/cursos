@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("listaBlog", ["Post"]);
+angular.module("listaBlog", ["postsApi"]);

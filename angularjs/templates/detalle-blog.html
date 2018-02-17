@@ -13,7 +13,7 @@
 <div class="row">
     <ul>
 
-            <li ng-repeat="comentario in post.comentarios | filter: filtro">
+            <li ng-repeat="comentario in comentarios | filter: filtro">
                 <p>{{ comentario.texto }}</p> <a confirmar-click ="Quieres eliminar este comentario?" href="" ng-click="eliminarComentario(comentario)" > Eliminar</a>        
         
             </li>

@@ -6,15 +6,31 @@
             {"id":3 , "texto": "comentario 3"},
             {"id":4 , "texto": "comentario 4"},
             {"id":5 , "texto": "comentario 5"}
-        ]
+        ],
+        "img": "http://oi43.tinypic.com/2iuvpf.jpg",
+        "fecha": "2015-01-19"
     },
     {"id": 2 ,"titulo": "titulo 2" , "descripcion": "descripcion 2",
-        "comentarios": []
+        "comentarios": [],
+        "img": "http://oi43.tinypic.com/2iuvpf.jpg",
+        "fecha": "2015-01-17"
+        
     },
     {"id": 3 ,"titulo": "titulo 3" , "descripcion": "descripcion 3",
-        "comentarios": []},
+        "comentarios": [],
+        "img": "http://oi43.tinypic.com/2iuvpf.jpg",
+        "fecha": "2015-01-14"
+    },
+        
     {"id": 4 ,"titulo": "titulo 4" , "descripcion": "descripcion 4",
-        "comentarios": []},
+        "comentarios": [],
+        "img": "http://oi43.tinypic.com/2iuvpf.jpg",
+        "fecha": "2015-01-12"
+    },
     {"id": 5 ,"titulo": "titulo 5" ,  "descripcion": "descripcion 5",
-        "comentarios": []}
+        "comentarios": [],
+        "img": "http://oi43.tinypic.com/2iuvpf.jpg",
+        "fecha": "2015-01-01"
+        
+    }
 ]

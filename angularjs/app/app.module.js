@@ -1,3 +1,8 @@
 'use strict';
 
-angular.module('prueba',["ngRoute" ,"ngResource" ,"listaBlog", "detalleBlog", "confirmarClick"]);
+angular.module('prueba',["ngRoute" ,
+                        "ngResource" ,
+                        "listaBlog", 
+                        "detalleBlog", 
+                        "confirmarClick", 
+                        "angularUtils.directives.dirPagination"]);

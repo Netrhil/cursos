@@ -1,11 +1,29 @@
 <h3>Lista de blogs </h3>
-<ul ng-if="items.length > 0">
+<!-- <ul ng-if="items.length > 0">
     <li ng-repeat="post in items">
-        <a href="#" ng-click="alClick(post)"> {{post.titulo}} </a> 
-        <!-- con directivas -->
-        <!--  ng-href="#/blog/{{ item.id }}"{} -->
-        <!-- <confirmar-click></confirmar-click> -->
+        <a href="#" > {{post.titulo}} </a> 
+        
+        
     </li>
-</ul>
+</ul> -->
+
+<div class="container">
+        <div class="row">
+        <div class="col-xs-18 col-sm-6 col-md-3" dir-paginate="post in items | itemsPerPage: 3 | orderBy: 'fecha'">
+                <div class="thumbnail">
+                <img ng-src="{{ post.img }}" width="90%" height="35%"/>
+                    <div class="caption">
+                    <h4>{{ post.titulo}}</h4>
+                    <p>{{ post.fecha }}</p>
+                    <p><a href="#" class="btn btn-info btn-xs" role="button" ng-click="alClick(post)">Ver</a></p>
+                </div>
+                </div>
+            </div>        
+        </div>
+        <dir-pagination-controls></dir-pagination-controls>
+</div>
+
+
+
 
 <span ng-if="items.length == 0"> No hay posts :(</span>

@@ -1,23 +1,37 @@
-<h1>{{ titulo }}</h1>
+<div class="page-header">
+        <h1>{{ titulo }}</h1>
+</div>
 
+<div class="container">
 <p>{{ post.descripcion}}</p>
 
 <h3>Comentarios</h3>
+<div class="row">
+        <input class="form-control" type="text" ng-model="filtro" placeholder="Filtrar Comentarios">
+</div>
 
-<input type="text" ng-model="filtro" placeholder="Filtrar Comentarios">
-<ul>
-  
-    <li ng-repeat="comentario in post.comentarios | filter: filtro">
-        <p>{{ comentario.texto }}</p> <a confirmar-click ="Quieres eliminar este comentario?" href="" ng-click="eliminarComentario(comentario)" > Eliminar</a>        
+<div class="row">
+    <ul>
 
-    </li>
-    <span ng-if="post.comentarios.length == 0"> No hay comentarios :(</span>
-    
-</ul>
+            <li ng-repeat="comentario in post.comentarios | filter: filtro">
+                <p>{{ comentario.texto }}</p> <a confirmar-click ="Quieres eliminar este comentario?" href="" ng-click="eliminarComentario(comentario)" > Eliminar</a>        
+        
+            </li>
+            <span ng-if="post.comentarios.length == 0"> No hay comentarios :(</span>
+            
+        </ul>
+      
+</div>
+<div class="row">
+        <p style="color:blue" ng-if="respuesta"> Vista preliminar : {{ respuesta.texto }}</p>
+</div>
+<div class="row">      
+       
+    <form ng-submit="agregarRespuesta()">
+            <input type="hidden" ng-model="respuesta.id" value="{{ post.comentarios.length + 1}}">
+            <textarea ng-model="respuesta.texto"></textarea>
+            <input class="btn btn-default" type="submit">
+    </form> 
+</div>
 
-<p style="color:blue" ng-if="respuesta"> Vista preliminar : {{ respuesta.texto }}</p>
-<form ng-submit="agregarRespuesta()">
-        <input type="hidden" ng-model="respuesta.id" value="{{ post.comentarios.length + 1}}">
-        <textarea ng-model="respuesta.texto"></textarea>
-        <input type="submit">
-</form>
+</div>

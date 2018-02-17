@@ -14,10 +14,13 @@
     <ul>
 
             <li ng-repeat="comentario in comentarios | filter: filtro">
-                <p>{{ comentario.texto }}</p> <a confirmar-click ="Quieres eliminar este comentario?" href="" ng-click="eliminarComentario(comentario)" > Eliminar</a>        
+
+                <p>{{ comentario.texto }} </p>
+                <a confirmar-click ="Quieres eliminar este comentario?" href="" ng-click="eliminarComentario(comentario.id_C)" > Eliminar</a>
+                        
         
             </li>
-            <span ng-if="post.comentarios.length == 0"> No hay comentarios :(</span>
+            <span ng-if="comentarios.length == 0"> No hay comentarios :(</span>
             
         </ul>
       

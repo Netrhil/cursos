@@ -42,6 +42,19 @@ router.post('/comentarios', function(req, res, next) {
   	});
 });
 
+router.delete('/comentarios/:id', function(req, res, next) {
+			
+	connection.query('delete from comentarios where id_C =0' + req.params.id , function (error, results, fields) {
+	  	if(error){
+	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
+	  		
+	  	} else {
+  			res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+			
+	  	}
+  	});
+});
+
 
 module.exports = router;
 

@@ -1,3 +1,13 @@
 <h1>
-  {{title}}
+  hola {{ nombre }}!
 </h1>
+
+<input type="text" [(ngModel)]="nombre">
+<button (click)="cambiarNombre('jose')"> Cambiar nombre a jose</button>
+<h3 *ngIf="visible">Soy visible</h3 >
+
+<template ngFor let-item [ngForOf]="items">
+  <li *ngIf="item.check">
+   <p [style.backgroundColor]="pruebaClasesCss"> {{ item.cosa }} </p> 
+  </li>
+</template>

@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  nombre = 'alguien!';
+  visible = true;
+  pruebaClasesCss = 'red';
+
+  items = [
+    {cosa: 1 , check: true},
+    {cosa: 2 , check: true},
+    {cosa: 4 , check: true},
+    {cosa: 3 , check: true},
+  ]
+  cambiarNombre(nombreHtml: string) {
+    this.nombre = nombreHtml;
+  }
 }
+

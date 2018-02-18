@@ -12,11 +12,8 @@
 </template> -->
 
 <span *ngIf="lista.length === 0" > No hay tareas pendientes :)</span>
-<ul>
-  <li *ngFor="let item of lista">
-   <input type="checkbox" [(ngModel)]="item.tachado"> <span [style.textDecoration]="item.tachado?'line-through':'none'"> {{ item.detalle }} </span> <button (click)="eliminarItem(item)"> Eliminar </button>
-  </li>
-</ul>
 
+<item *ngFor="let item of lista" [item]="item" (remove)="eliminarItem(item)"></item>
 
+<hr>
 <input type="text" [(ngModel)]="nombre"> <button (click) ="agregarToDo(nombre)"> Agregar</button>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { ItemComponent } from './item.component';
+
+
 interface item {
   detalle:string;
   tachado:boolean;
@@ -25,7 +28,7 @@ export class AppComponent {
   // }
   lista: item[] = [];
   nombre: string;
-  
+
   agregarToDo(nombreInput) {
     this.lista.push({detalle: nombreInput, tachado: false });
     this.nombre = "";

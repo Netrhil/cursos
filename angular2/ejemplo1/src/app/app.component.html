@@ -1,13 +1,22 @@
 <h1>
-  hola {{ nombre }}!
+  Un CheckList :D
 </h1>
 
-<input type="text" [(ngModel)]="nombre">
-<button (click)="cambiarNombre('jose')"> Cambiar nombre a jose</button>
+<!-- <button (click)="cambiarNombre('jose')"> Cambiar nombre a jose</button>
 <h3 *ngIf="visible">Soy visible</h3 >
 
 <template ngFor let-item [ngForOf]="items">
   <li *ngIf="item.check">
    <p [style.backgroundColor]="pruebaClasesCss"> {{ item.cosa }} </p> 
   </li>
-</template>
+</template> -->
+
+<span *ngIf="lista.length === 0" > No hay tareas pendientes :)</span>
+<ul>
+  <li *ngFor="let item of lista">
+   <input type="checkbox" [(ngModel)]="item.tachado"> <span [style.textDecoration]="item.tachado?'line-through':'none'"> {{ item.detalle }} </span> <button (click)="eliminarItem(item)"> Eliminar </button>
+  </li>
+</ul>
+
+
+<input type="text" [(ngModel)]="nombre"> <button (click) ="agregarToDo(nombre)"> Agregar</button>

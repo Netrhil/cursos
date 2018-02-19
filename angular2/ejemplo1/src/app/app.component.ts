@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 import { ItemComponent } from './item.component';
+
 
 
 interface item {
@@ -13,22 +15,24 @@ interface item {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // nombre = 'alguien!';
-  // visible = true;
-  // pruebaClasesCss = 'red';
-
-  // items = [
-  //   {cosa: 1 , check: true},
-  //   {cosa: 2 , check: true},
-  //   {cosa: 4 , check: true},
-  //   {cosa: 3 , check: true},
-  // ]
-  // cambiarNombre(nombreHtml: string) {
-  //   this.nombre = nombreHtml;
-  // }
   lista: item[] = [];
   nombre: string;
+  
+  constructor(private http: Http) {};
+   
+   buscar() {
+    const url = 'http://localhost:3000/api/post/comentarios';
+    const data = {
+      texto: 'asdasd',
+      idPost: 3
+    };
 
+    this.http.post(url, data).subscribe(
+      response => {
+        console.log(response.json()); }
+    );
+  }
+  
   agregarToDo(nombreInput) {
     this.lista.push({detalle: nombreInput, tachado: false });
     this.nombre = "";

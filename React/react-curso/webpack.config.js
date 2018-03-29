@@ -3,12 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
-module.exports = (env) => {
+module.exports = () => {
   const plugins = [
     new ExtractTextPlugin("css/[name].[hash].css")
   ]
 
-  if (env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
+    console.log("entro");
     plugins.push(
       new CleanWebpackPlugin(['dist'], {root: __dirname})
     )

@@ -1,17 +1,7 @@
-/* 
-
-    ESTO NO SERA UN ENTRY PORQUE NO INSTALE WEBPACK (aun :D)
-
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import Home from '../pages/containers/home';
-// import Playlist from './src/playlist/components/playlist';
-// import data from './src/api.json';
-// console.log('Hola mundo!' )
+import data from '../../src/api.json';
 
-const app = document.getElementById('app')
-
-// ReactDOM.render(que voy a renderizar, donde lo haré);
-// const holaMundo = <h1>hola Estudiante!</h1>;
-render( <Home />, app); */
+ReactDOM.render(<Home data={data}/>, document.getElementById('root'));
 

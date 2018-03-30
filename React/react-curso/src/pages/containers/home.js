@@ -3,17 +3,48 @@ import HomeLayout from '../components/home-layout';
 import Categories from '../../categories/components/categories'
 import Related from '../components/related';
 import ModalContainer from '../../widgets/containers/modal';
+import Modal from '../../widgets/components/modal';
+import HandleError from '../../error/containers/handle-error'
 
 class Home extends Component {
+  // Esta forma de setear es de ecma7
+  state = {
+    modalVisible: false
+  }
+
+  handleOpenModalClick = () => {
+    this.setState({
+      modalVisible: true
+    });
+  }
+
+  handleCloseModalClick = (evento) => {
+    this.setState({
+      modalVisible: false
+    });
+  }
+
   render() {
     return (
-      <HomeLayout> 
-        <Related />
-        <Categories categories={this.props.data.categories} />
-        <ModalContainer>
-          <h1> Esto es un modal :D</h1>
-        </ModalContainer>
-      </HomeLayout>       
+      <HandleError>
+        <HomeLayout> 
+          <Related />
+          <Categories 
+            categories={this.props.data.categories} 
+            handleOpenModal={this.handleOpenModalClick} />
+
+          {
+            this.state.modalVisible &&
+            <ModalContainer>
+            <Modal
+              handleClick={this.handleCloseModalClick}
+            >
+            <h1> Esto es un portal :D</h1>
+            </Modal>
+          </ModalContainer>
+          }
+        </HomeLayout>
+      </HandleError>     
     )
   }
 }

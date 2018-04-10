@@ -1,5 +1,5 @@
-import React, { Component } from 'React';
-import { createPortal } from 'React-dom';
+import React, { Component } from 'react';
+import { createPortal } from 'react-dom';
 
 class ModalContainer extends Component {
     render() {

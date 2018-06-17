@@ -8,7 +8,8 @@ function handleSubmit(event) {
     //Clase para manipular el form
     const data = new FormData($form);
     const title = data.get('title');
-   
+    
+    //accion que es procesada por el reducer para agregar cancion
     store.dispatch({
         type: 'ADD_SONG',
         payload: {
@@ -46,12 +47,24 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-const $container = document.getElementById('playlist');
-const dataPlayList = store.getState();
 
-dataPlayList.forEach(item => {
-    const template = document.createElement('p');
-    template.textContent = item.title;
-    $container.appendChild(template);    
-});
+function render() {
+    const $container = document.getElementById('playlist');
+    const dataPlayList = store.getState();
+    $container.innerHTML = '';
+
+    dataPlayList.forEach(item => {
+        const template = document.createElement('p');
+        template.textContent = item.title;
+        $container.appendChild(template);    
+    });
+}
+
+render();
+
+function handleChange() {
+    render();
+}
+
+store.subscribe(handleChange);
 
